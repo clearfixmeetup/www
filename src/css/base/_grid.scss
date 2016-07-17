@@ -1,0 +1,50 @@
+// Configure grid settings
+@include sgs-change('debug', true);
+@include sgs-change('include border box', true);
+@include sgs-change('include clearfix', false);
+@include sgs-change('background grid color', #DDD);
+
+// Default small grid (mobile first)
+@include add-grid(bk-cols('small'));
+@include add-gutter(bk-gutter('small'));
+@include add-gutter-style('split');
+
+// Setup grid for each breakpoint
+@each $breakpoint, $values in $breakpoints {
+    @include add-grid(bk-cols($breakpoint) at bk-mq($breakpoint));
+    @include add-gutter(bk-gutter($breakpoint) at bk-mq($breakpoint));
+}
+
+@if ($grid-debug) {
+    body {
+        position: relative;
+
+        &::before {
+            @include background-grid($color: $brand-color);
+            @extend %section--centered;
+
+            @each $breakpoint, $values in $breakpoints {
+                @include layout-at(bk-cols($breakpoint), bk-mq($breakpoint)) {
+                    @include background-grid($color: $brand-color);
+                }
+            }
+
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            height: 100%;
+            background-position: center top;
+            transform: translateX(-50%);
+            pointer-events: none;
+
+            @if ($grid-debug-above) {
+                z-index: 999999;
+                opacity: 0.5;
+            } @else {
+                z-index: -1;
+            }
+        }
+    }
+}

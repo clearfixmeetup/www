@@ -1,0 +1,53 @@
+//----------------------------------------------------------------------------
+// UpcomingEvent
+//----------------------------------------------------------------------------
+
+.UpcomingEvent {
+    background-color: $brand-color;
+    color: $inverted-text-color;
+    padding-top: $u * 4;
+
+    @include breakpoint(bk-mq('medium')) {
+        padding-top: $u * 10;
+    }
+
+    a {
+        color: $inverted-text-color;
+    }
+
+    &-title {
+        @extend %alpha;
+        padding-top: $u * 2;
+        padding-bottom: $u * 4;
+        text-align: center;
+
+        @include breakpoint(bk-mq('medium')) {
+            padding-top: $u * 5;
+            padding-bottom: $u * 10;
+        }
+    }
+
+    &-content {
+        @include clearfix;
+        @extend %section--centered;
+    }
+
+    &-section {
+        @include clearfix;
+
+        clear: both;
+        margin-bottom: 60px;
+    }
+
+    &-section-title {
+        @include clearfix;
+        @extend %beta;
+
+        margin-bottom: 60px;
+        clear: both;
+
+        @include breakpoint(bk-mq('large')) {
+            @include grid-span(5, 2);
+        }
+    }
+}

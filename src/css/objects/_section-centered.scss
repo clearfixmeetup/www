@@ -1,0 +1,10 @@
+%section--centered {
+    width: 90%;
+    max-width: $content-width;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint(bk-mq('medium')) {
+        width: 95%;
+    }
+}

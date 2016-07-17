@@ -1,0 +1,80 @@
+.Topics {
+    &-rotator {
+        color: $brand-color;
+    }
+}
+
+/*
+ * How animation works in TopicsRotator
+ *
+ * We apply the same @keyframes animation to each word. The time of the whole
+ * animation is `word-animation-duration * words-count`.
+ *
+ * |[---]                    |
+ *
+ * Note that, the visible animation happens at the beginning ([---]), rest of
+ * the time, elements being animated are just hidden.
+ *
+ * Then we apply a different animation-delay to each word, so each word starts
+ * the animation when the visible animation ([---]) of the previous word has
+ * 'finished'.
+ *
+ * word1:  |[---]                    |
+ * word2:        |[---]                    |
+ * word3:              |[---]                    |
+ * word4:                    |[---]                    |
+ * word5:                          |[---]                    |
+ */
+
+$topicsrotator-words-count: 16;
+$topicsrotator-rotation-duration: 1.5s;
+$topicsrotator-anim-ease: ease;
+
+.TopicsRotator {
+    display: inline-block;
+    position: relative;
+    text-indent: -999em;
+
+    $anim-duration: $topicsrotator-rotation-duration * $topicsrotator-words-count;
+
+    > span {
+        text-indent: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        animation: topics-rotator $anim-duration $topicsrotator-anim-ease infinite;
+
+        @for $n from 1 through $topicsrotator-words-count {
+            &:nth-child(#{$n}) {
+                animation-delay: ($topicsrotator-rotation-duration * $n) - ($topicsrotator-rotation-duration);
+            }
+        }
+    }
+}
+
+@keyframes topics-rotator {
+    $step-percent: percentage((100 / $topicsrotator-words-count) / 100);
+
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #{$step-percent * 0.1} {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #{$step-percent * 0.9} {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #{$step-percent * 1} {
+        transform: translateY(-100%);
+        opacity: 0;
+        animation-play-state: running;
+    }
+}

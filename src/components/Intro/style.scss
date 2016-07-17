@@ -1,0 +1,76 @@
+.Intro {
+    @include clearfix();
+
+    &-event,
+    &-nextDate {
+        @include grid-span(6, 1);
+    }
+
+    &-logo {
+        font-size: em(13px);
+        margin-bottom: em($u * 15);
+    }
+
+    &-description {
+        color: $base-text-color;
+    }
+
+    &-nextDate {
+        text-align: center;
+    }
+
+    @include layout(6, $gutter-style: 'opposite') {
+        &-logo {
+            @include grid-span(5, 2);
+        }
+
+        &-description {
+            @include grid-span(5, 2);
+        }
+    }
+
+    @include layout-at(bk-cols('medium'), bk-mq('medium')) {
+        &-logo {
+            font-size: 1em;
+        }
+
+        &-event {
+            @include grid-span(9, 1);
+        }
+
+        @include layout(9, $gutter-style: 'opposite') {
+            &-logo {
+                @include grid-span(8, 2);
+            }
+
+            &-description {
+                @include grid-span(7, 3);
+            }
+        }
+
+        &-nextDate {
+            @include float-span(3, 'last');
+            margin-top: em(180px);
+        }
+    }
+
+    @include layout-at(bk-cols('large'), bk-mq('large')) {
+        &-event {
+            @include grid-span(12, 1);
+        }
+
+        @include layout(12, $gutter-style: 'opposite') {
+            &-logo {
+                @include grid-span(11, 2);
+            }
+
+            &-description {
+                @include grid-span(9, 4);
+            }
+        }
+
+        &-nextDate {
+            @include float-span(3, 'last');
+        }
+    }
+}

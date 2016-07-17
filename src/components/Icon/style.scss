@@ -1,0 +1,18 @@
+.Icon {
+    @extend %text-image-replacement;
+
+    font-size: $base-font-size;
+    display: inline-block;
+    width: em(40px);
+    height: em(40px);
+    background-size: em(40px);
+    background-repeat: no-repeat;
+}
+
+.Icon--github {
+    background-image: url('../images/github-logo.svg');
+}
+
+.Icon--twitter {
+    background-image: url('../images/twitter-logo.svg');
+}

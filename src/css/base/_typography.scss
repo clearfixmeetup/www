@@ -1,0 +1,119 @@
+html {
+    font-family: $base-font-family;
+    font-style: normal;
+    font-size: $base-font-size;
+    line-height: em($base-line-height);
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern', 'liga';
+    hyphens: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background-color: $brand-color;
+    color: #FFF;
+}
+
+@function _headings($settings) {
+    @if (map-has-key($settings, 'headings')) {
+        @return map-get($settings, 'headings');
+    }
+
+    @return null;
+}
+
+@function _lh($settings) {
+    @if (map-has-key($settings, 'line-height')) {
+        @return map-get($settings, 'line-height');
+    }
+
+    @return null;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: em($base-line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
+@function find-breakpoint-from-width($min-width) {
+    @each $breakpoint, $values in $breakpoints {
+        $bk-min-width: map-get($values, 'min-width');
+
+        @if ($bk-min-width == nth($min-width, 1)) {
+            @return $breakpoint;
+        }
+    }
+
+    @return null;
+}
+
+@function get-breakpoint-name-from-context() {
+    @if (breakpoint-has-context()) {
+        @return find-breakpoint-from-width(breakpoint-get-context('min-width'));
+    }
+
+    @return nth(map-keys($font-sizes), 1);
+}
+
+@function font-size($size, $breakpoint: null, $settings: $font-sizes) {
+    @if (not $breakpoint) {
+        $breakpoint: get-breakpoint-name-from-context();
+    }
+
+    $bk-settings: map-get($settings, $breakpoint);
+    $bk-sizes: map-get($bk-settings, 'sizes');
+    $bk-size-values: map-get($bk-sizes, $size);
+
+    @return map-get($bk-size-values, 'size');
+}
+
+@function line-height($size, $breakpoint: null, $settings: $font-sizes) {
+    @if not ($breakpoint) {
+        $breakpoint: get-breakpoint-name-from-context();
+    }
+
+    $bk-settings: map-get($settings, $breakpoint);
+    $bk-sizes: map-get($bk-settings, 'sizes');
+    $bk-size-values: map-get($bk-sizes, $size);
+
+    @if (map-has-key($bk-size-values, 'line-height')) {
+        @return map-get($bk-size-values, 'line-height');
+    } @else if (variable-exists($base-line-height)) {
+        @return $base-line-height;
+    }
+
+    @return normal;
+}
+
+@each $breakpoint, $bk in $font-sizes {
+    $sizes: map-get($bk, 'sizes');
+
+    @each $size, $settings in $sizes {
+        %#{$size},
+        .#{$size},
+        #{_headings($settings)} {
+            @if (map-has-key($breakpoints, $breakpoint)) {
+                @include breakpoint(bk-mq($breakpoint)) {
+                    font-size: map-get($settings, 'size');
+                    line-height: _lh($settings);
+
+                    @at-root #{_headings($settings)} {
+                        margin-bottom: _lh($settings);
+                    }
+                }
+            } @else {
+                font-size: map-get($settings, 'size');
+                line-height: _lh($settings);
+            }
+        }
+    }
+}

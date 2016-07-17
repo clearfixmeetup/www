@@ -1,0 +1,24 @@
+$newsletter-image-width: 133px;
+$newsletter-image-height: 80px;
+
+.Home {
+    max-width: 100%;
+    overflow-x: hidden;
+
+    &-intro {
+        @include clearfix;
+        @extend %section--centered;
+
+        margin-top: $u * 4;
+        margin-bottom: $u * 10;
+
+        @include breakpoint(bk-mq('large')) {
+            margin-bottom: $u * 20;
+        }
+    }
+
+    &-newsletter {
+        padding-top: $u * 20;
+        padding-bottom: $u * 20;
+    }
+}

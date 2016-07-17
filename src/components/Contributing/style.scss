@@ -1,0 +1,144 @@
+.Contributing {
+    // checkerboard
+    $bg-size: 10px;
+    background-color: #FFF;
+    background-image:
+        linear-gradient(45deg, rgba($brand-color, 1) 25%, transparent 25%, transparent 75%, rgba($brand-color, 1) 75%, rgba($brand-color, 1)),
+        linear-gradient(45deg, rgba($brand-color, 1) 25%, transparent 25%, transparent 75%, rgba($brand-color, 1) 75%, rgba($brand-color, 1));
+    background-size: $bg-size $bg-size;
+    background-position: 0 0, $bg-size / 2 $bg-size / 2;
+
+    &-content {
+        @include clearfix;
+        @extend %section--centered;
+
+        padding-top: $u * 8;
+        padding-bottom: $u * 6;
+    }
+
+    &-card {
+        @include grid-span(6, 1);
+    }
+
+    @include breakpoint(bk-mq('medium')) {
+        &-content {
+            padding-top: $u * 30;
+            padding-bottom: $u * 30;
+        }
+
+        &-card {
+            position: relative;
+
+            &:hover {
+                z-index: 900 !important;
+            }
+        }
+
+        &-card:nth-child(1) {
+            @include grid-span(5, 1);
+
+            z-index: 1;
+        }
+
+        &-card:nth-child(2) {
+            @include grid-span(5, 3);
+
+            z-index: 2;
+            margin-top: column-span(5, 3) * 0.63;
+        }
+
+        &-card:nth-child(3) {
+            @include grid-span(5, 6);
+
+            z-index: 3;
+            margin-top: column-span(5, 6) * -0.2;
+        }
+
+        &-card:nth-child(4) {
+            @include grid-span(5, 8);
+
+            z-index: 4;
+            margin-top: column-span(5, 8) * 0.45;
+        }
+    }
+
+    @include breakpoint(bk-mq('large')) {
+        &-content {
+            padding-top: $u * 40;
+            padding-bottom: $u * 40;
+        }
+
+        &-card:nth-child(1) {
+            @include grid-span(6, 2);
+        }
+
+        &-card:nth-child(2) {
+            @include grid-span(6, 4);
+
+            margin-top: column-span(6, 4) * 0.63;
+        }
+
+        &-card:nth-child(3) {
+            @include grid-span(6, 8);
+
+            margin-top: column-span(6, 8) * -0.2;
+        }
+
+        &-card:nth-child(4) {
+            @include grid-span(6, 10);
+
+            margin-top: column-span(6, 10) * 0.45;
+        }
+    }
+}
+
+.ContributingCard {
+    background: #FFF;
+    margin-bottom: $u * 4;
+    padding: em($u * 8) em($u * 8);
+
+    a {
+        @extend %linkify;
+    }
+
+    &-title {
+        @extend %alpha;
+    }
+
+    &-desc {
+        color: $base-text-color;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    @include breakpoint(bk-mq('medium')) {
+        background: transparent;
+        position: relative;
+        margin-bottom: 0;
+
+        &::before {
+            $border-width: em(10px);
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            width: calc(100%);
+            padding-top: calc(100% - #{$border-width * 2});
+            min-height: 100%;
+            background-color: rgba(#FFF, 1);
+            border: $border-width double $brand-color;
+        }
+
+        &-title,
+        &-desc {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    @include breakpoint(bk-mq('large')) {
+        padding: em($u * 10) em($u * 10);
+    }
+}

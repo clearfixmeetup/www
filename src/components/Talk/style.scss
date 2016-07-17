@@ -1,0 +1,154 @@
+//----------------------------------------------------------------------------
+// Talks
+//----------------------------------------------------------------------------
+
+.Talk {
+    // Offset between the main and first secondary talk to create an asymetric
+    // vertical layout. Used to set both the min-height of the main talk body
+    // content and the negative margin of the first secondary talk.
+    $offset: 300px;
+    $offsetComp: $offset - $u * 10;
+
+    margin-bottom: 40px;
+
+    &--main {
+        @include grid-span(6);
+
+        @include breakpoint(bk-mq('medium')) {
+            @include grid-span(11, 1);
+
+            clear: both;
+        }
+
+        @include breakpoint(bk-mq('large')) {
+            @include grid-span(14, 2);
+
+            clear: both;
+        }
+    }
+
+    &--lightning {
+        @include grid-span(6);
+
+        @include breakpoint(bk-mq('medium')) {
+            @include grid-span(4, 1);
+
+            &:last-child {
+                @include grid-span(4, 7);
+            }
+        }
+
+        @include breakpoint(bk-mq('large')) {
+            @include grid-span(5, 3);
+
+            &:last-child {
+                @include grid-span(5, 9);
+            }
+        }
+
+        &:first-child {
+            @include breakpoint(bk-mq('medium')) {
+                margin-top: - $offsetComp;
+            }
+
+            @include breakpoint(bk-mq('large')) {
+                margin-top: - $offsetComp;
+            }
+        }
+    }
+
+    &-avatar {
+        clear: both;
+
+        .Talk--main & {
+            @include layout-at(11, bk-mq('medium')) {
+                @include grid-span(4, 2, $gutter-style: 'opposite');
+            }
+
+            @include layout-at(14, bk-mq('large')) {
+                @include grid-span(5, 1, $gutter-style: 'opposite');
+            }
+        }
+
+        .Talk--lightning & {
+            margin-bottom: $u * 8;
+
+            @include layout-at(4, bk-mq('medium')) {
+                @include grid-span(4, 1, $gutter-style: 'opposite');
+            }
+
+            @include layout-at(5, bk-mq('large')) {
+                @include grid-span(4, $gutter-style: 'opposite');
+            }
+        }
+    }
+
+    &-info {
+        clear: both;
+
+        .Talk--main & {
+            @include layout-at(11, bk-mq('medium')) {
+                @include grid-span(6, 6, $gutter-style: 'opposite');
+            }
+
+            @include layout-at(14, bk-mq('large')) {
+                @include grid-span(8, 7, $gutter-style: 'opposite');
+            }
+        }
+    }
+
+    &-typeTitle,
+    &-typeEmoji {
+        @extend %gamma;
+
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &-typeEmoji {
+        margin-right: 0.25em;
+        mix-blend-mode: luminosity;
+        filter: grayscale(100%);
+
+        @supports not (mix-blend-mode: luminosity) {
+            z-index: 2;
+            filter: sepia(100%) contrast(2) hue-rotate(200deg);
+            opacity: 0.8;
+        }
+    }
+
+    &-header {
+        clear: both;
+    }
+
+    &-title {
+        margin-bottom: $u * 4;
+        clear: both;
+
+        .Talk--main & {
+            @extend %giga;
+        }
+
+        .Talk--lightning & {
+            @include layout-at(4, bk-mq('medium')) {
+                width: column-span(5, 1);
+            }
+
+            @extend %alpha;
+        }
+    }
+
+    &-author {
+        @extend %beta;
+    }
+
+    &-description {
+        .Talk--lightning & {
+            @extend %delta;
+        }
+
+        @include breakpoint(bk-mq('medium')) {
+            min-height: $offset;
+        }
+    }
+}

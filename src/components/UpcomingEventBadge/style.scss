@@ -1,0 +1,47 @@
+.UpcomingEventBadge {
+    $padding: em(18px);
+    $size: em(200px);
+
+    box-sizing: border-box;
+    width: $size;
+    height: $size;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 100%;
+    text-align: center;
+    color: #FFF;
+    background-color: $brand-color;
+    padding: $padding;
+    text-decoration: none;
+
+    &-title {
+        font-size: em(15px);
+        text-transform: uppercase;
+        font-weight: normal;
+        margin-top: 0;
+        margin-bottom: 1em;
+    }
+
+    &-date {
+        font-size: em(26px);
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+
+        sub {
+            font-size: em(13px, 26px);
+            position: relative;
+            top: em(-1px, 26px);
+        }
+    }
+
+    @include breakpoint(bk-mq('medium')) {
+        transform: scale(1);
+        transition: transform 2s ease;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}

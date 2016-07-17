@@ -1,0 +1,44 @@
+.Header {
+    @extend %section--centered;
+    @include clearfix;
+
+    padding-top: $u * 10;
+    padding-bottom: $u * 10;
+
+    a {
+        @extend %linkify;
+        transition-duration: 0.2s;
+        font-weight: bold;
+    }
+
+    &-topics {
+        @include grid-span(5);
+
+        hyphens: none;
+    }
+
+    &-langNav {
+        @include float-span(1, 'last');
+        text-align: right;
+        font-weight: bold;
+
+        a {
+            color: $link-color;
+            line-height: $base-line-height;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+
+    @include breakpoint(bk-mq('medium')) {
+        &-topics {
+            @include grid-span(10);
+            font-size: font-size('alpha');
+        }
+
+        &-langNav {
+            @include float-span(2, 'last');
+            line-height: em(32px);
+        }
+    }
+}

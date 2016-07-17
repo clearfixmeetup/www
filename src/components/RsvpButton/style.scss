@@ -1,0 +1,38 @@
+//----------------------------------------------------------------------------
+// RsvpButton
+//----------------------------------------------------------------------------
+
+.RsvpButton {
+    @extend %alpha;
+
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0);
+    color: $white;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.1em;
+    padding: 1em;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    outline: solid 20px $white;
+    transition: all 125ms;
+    margin-top: $u * 10;
+
+    display: block;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 1);
+        color: $brand-color;
+        transform: scale(1.5);
+        outline: solid 0 $white;
+    }
+
+    &-cta {
+        display: block;
+    }
+
+    &-extra {
+        font-size: 0.5em;
+    }
+}

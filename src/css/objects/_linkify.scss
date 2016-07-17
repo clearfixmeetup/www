@@ -1,0 +1,29 @@
+%linkify {
+    $border-width: 2px;
+
+    position: relative;
+    display: inline-block;
+    color: $brand-color;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: em(1px);
+    border-bottom: $border-width solid transparent;
+    transition-duration: 0.3s;
+    line-height: inherit;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: $border-width;
+        background-color: $brand-color;
+        transition: width 0 ease;
+        transition-duration: inherit;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}

@@ -1,0 +1,97 @@
+.Logo {
+    $line-height: 0.6em;
+    $brand-border-width: em(20px);
+    $brand-border-color: $brand-color;
+    $brand-text-left-offset: em(3px);
+    $square-widht: em(280px);
+
+    line-height: $line-height;
+
+    &-brand {
+        font-size: inherit;
+        line-height: 1;
+        display: inline-block;
+        vertical-align: bottom;
+        position: relative;
+        background-image: url('../images/clearfix-logo.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-origin: border-box;
+        content: '';
+        width: em(315px);
+        height: $square-widht;
+        margin: 0;
+        margin-bottom: em(-31px);
+        margin-left: -21%;
+        text-indent: -999px;
+
+        &::before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: $square-widht;
+            height: 100%;
+            border: $brand-border-width solid $brand-border-color;
+            // background-color: $brand-border-color;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: calc(50% - #{$brand-border-width / 2});
+            left: 0;
+            width: $square-widht;
+            height: $brand-border-width;
+            background-color: $brand-border-color;
+
+            transition: top 0.3s ease-out;
+        }
+
+        &:hover::after {
+            top: calc(100% - #{$brand-border-width});
+            transition-delay: 2s;
+        }
+    }
+
+    &-tagline {
+        @extend %alpha;
+        font-size: em(36px);
+        position: relative;
+        z-index: 1;
+        display: inline;
+        margin-top: em(-50px);
+        margin-left: em(-70px);
+        font-weight: bold;
+        vertical-align: bottom;
+        line-height: 1.3em;
+    }
+
+    @include breakpoint(bk-mq('medium')) {
+        &-brand {
+            margin-left: -12.8%;
+        }
+    }
+
+    @include breakpoint(bk-mq('large')) {
+        &-brand {
+            margin-left: -9%;
+        }
+    }
+}
+
+.Logo--white {
+    $width: 315px * 0.32;
+    $height: 280px * 0.32;
+
+    @extend %text-image-replacement;
+
+    display: block;
+    width: em($width);
+    height: em($height);
+    background-image: url('../images/clearfix-logo-white.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    line-height: $height;
+}

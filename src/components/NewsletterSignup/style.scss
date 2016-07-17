@@ -1,0 +1,145 @@
+.NewsletterSignup {
+    @include clearfix;
+    @extend %section--centered;
+
+    &-content {
+        @include grid-span(6, 1);
+    }
+
+    &-title,
+    &-subtitle {
+        margin-bottom: 0;
+    }
+
+    &-title {
+        @extend %beta;
+    }
+
+    &-subtitle {
+        @extend %kilo;
+
+        > span {
+            background-color: $brand-color;
+            padding-left: em(10px, 42px);
+            padding-right: em(10px, 42px);
+            color: #FFF;
+            display: inline-block;
+        }
+    }
+
+    &-text {
+        margin-top: $u * 2;
+        color: $base-text-color;
+    }
+
+    &-form {
+        @extend %beta;
+
+        display: flex;
+        align-items: center;
+        margin-top: $u * 16;
+        white-space: nowrap;
+
+        label {
+            display: none;
+        }
+    }
+
+    &-input,
+    &-button {
+        font-size: inherit;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 0;
+        hyphens: none;
+    }
+
+    &-input {
+        flex: 1;
+        box-sizing: border-box;
+        font-weight: bold;
+        padding: 0 $u;
+        border: none;
+        background-color: transparent;
+        outline: 1px solid transparent;
+        border-left: 4px solid transparent;
+        line-height: em(52px, 34px);
+        width: 100%;
+        animation: newsletter-signup-cursor-blink 1s linear infinite;
+
+        &:focus {
+            animation: none;
+        }
+
+        &::placeholder {
+            @extend %gamma;
+
+            @include breakpoint(bk-mq('medium')) {
+                font-size: font-size('kilo');
+            }
+
+            @include breakpoint(bk-mq('large')) {
+                font-size: font-size('kilo');
+            }
+
+            color: $base-text-color;
+        }
+    }
+
+    &-button {
+        appearance: none;
+        background-color: transparent;
+        background-image: url('../images/icon-arrow-left-circle.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 1.3em;
+        height: 1.3em;
+        text-indent: -999em;
+        border: none;
+        cursor: pointer;
+        outline: 1px solid transparent;
+        margin-left: $u * 2;
+    }
+
+    @include breakpoint(bk-mq('medium')) {
+        &-content {
+            @include grid-span(8, 3);
+        }
+
+        &-form {
+            font-size: font-size('kilo');
+        }
+
+        input[type='email'] {
+            min-width: em(420px, 52px);
+        }
+    }
+
+    @include breakpoint(bk-mq('large')) {
+        &-content {
+            @include grid-span(8, 3);
+        }
+    }
+}
+
+@keyframes newsletter-signup-cursor-blink {
+    0% {
+        border-left-color: transparent;
+    }
+
+    20% {
+        border-left-color: $brand-color;
+    }
+
+    60% {
+        border-left-color: $brand-color;
+    }
+
+    80% {
+        border-left-color: transparent;
+    }
+
+    100% {
+        border-left-color: transparent;
+    }
+}

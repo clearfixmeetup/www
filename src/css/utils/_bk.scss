@@ -1,0 +1,25 @@
+@function bk($bk, $bks: $breakpoints) {
+    @if not map-has-key($bks, $bk) {
+        @error '#{$bk} is not a valid breakpoint. Available breakpoints are #{map-keys($bks)}';
+    }
+
+    @return map-get($bks, $bk);
+}
+
+@function bk-mq($bk, $bks: $breakpoints) {
+    $bk-settings: bk($bk, $bks: $breakpoints);
+
+    @return map-get($bk-settings, 'min-width');
+}
+
+@function bk-cols($bk, $bks: $grid-breakpoints) {
+    $bk-settings: bk($bk, $bks);
+
+    @return map-get($bk-settings, 'cols');
+}
+
+@function bk-gutter($bk, $bks: $grid-breakpoints) {
+    $bk-settings: bk($bk, $bks);
+
+    @return map-get($bk-settings, 'gutter');
+}

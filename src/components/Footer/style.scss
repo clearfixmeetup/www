@@ -1,0 +1,131 @@
+.Footer {
+    font-size: em(14px);
+    padding-top: $u * 10;
+    padding-bottom: $u * 3;
+    background-image:
+        linear-gradient(to bottom, rgba($brand-color, 0.9) 0%, rgba($brand-color, 0.9)),
+        url('../images/barcelona-map.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #FFF;
+
+    a {
+        color: inherit;
+    }
+
+    .Logo,
+    .Icon {
+        filter: drop-shadow(0 0 0 transparent);
+        transition: filter 0.4s ease-out;
+
+        &:hover {
+            filter: drop-shadow(0 0 15px rgba(#000, 0.6));
+        }
+    }
+
+    &-content {
+        @extend %section--centered;
+        @include clearfix;
+    }
+
+    &-brand {
+        @include grid-span(6);
+        padding-bottom: $u * 10;
+
+        @include breakpoint(bk-mq('medium')) {
+            @include grid-span(3, 1);
+        }
+
+        @include breakpoint(bk-mq('large')) {
+            @include grid-span(3, 1);
+        }
+    }
+
+    &-navMain {
+        @include grid-span(3, 1);
+        clear: right;
+
+        @include breakpoint(bk-mq('medium')) {
+            @include grid-span(3, 7);
+        }
+
+        @include breakpoint(bk-mq('large')) {
+            @include grid-span(3, 11);
+        }
+    }
+
+    &-navContributing {
+        @include grid-span(3, 4);
+
+        @include breakpoint(bk-mq('medium')) {
+            @include grid-span(3, 10);
+        }
+
+        @include breakpoint(bk-mq('large')) {
+            @include grid-span(3, 14);
+        }
+    }
+
+    &-copyright,
+    &-social {
+        @include grid-span(6);
+        clear: both;
+
+        @include breakpoint(bk-mq('medium')) {
+            @include grid-span(12);
+            clear: both;
+        }
+
+        @include breakpoint(bk-mq('large')) {
+            @include grid-span(16);
+            clear: both;
+        }
+    }
+
+    &-copyright {
+        margin-top: em($u * 4);
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &-social {
+        text-indent: em(-10px);
+    }
+}
+
+.FooterNavGroup {
+    &-title {
+        @extend %beta;
+
+        display: block;
+        font-weight: bold;
+        margin-bottom: $u * 2;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: block;
+    }
+
+    .Link {
+        @extend %gamma;
+        display: inline-block;
+        line-height: normal;
+        color: inherit;
+        text-decoration: underline;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .Link.is-current {
+        color: inherit;
+    }
+}
