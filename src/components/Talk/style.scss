@@ -130,11 +130,11 @@
         }
 
         .Talk--lightning & {
+            @extend %kilo;
+
             @include layout-at(4, bk-mq('medium')) {
                 width: column-span(5, 1);
             }
-
-            @extend %alpha;
         }
     }
 

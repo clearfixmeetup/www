@@ -5,7 +5,6 @@
 .Avatar {
     position: relative;
     display: block;
-    margin-bottom: 40px; // @TODO use $u(nits)
     mix-blend-mode: luminosity;
 
     &-image {

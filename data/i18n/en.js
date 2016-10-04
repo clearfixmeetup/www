@@ -31,21 +31,21 @@ module.exports = {
         'talks': [
             {
                 'type': 'main',
-                'title': 'CSS Globals: Problems and Solutions',
+                'title': ['CSS Globals:', <br/>, ' Problems and Solutions'],
                 'description': 'CSS improved a lot in the last years but for many, it\'s still one of the hardest parts to handle while developing big web applications. Pre-processed languages like Sass and Less added many new features, but we still have to rely on methodologies such as BEM and OOCSS to avoid name collisions. Component-based libraries like React and Polymer are giving us a new tool to manage large front-end applications. In this talk, Giorgio will explain how to use these approaches so you can benefit from them in your next project.',
                 'speaker': 'Giorgio Polvara',
                 'avatar': require('../../src/images/giorgio-polvara.jpg'),
             },
             {
                 'type': 'lightning',
-                'title': 'A journey into CSS-in-JS',
+                'title': ['A journey into', <br/>, 'CSS-in-JS'],
                 'description': 'There seems to be many misconceptions about what means writing “inline styles” in javascript applications. I spent some time investigating the different solutions for writing CSS in those environments and I want to share my conclusions and why I think it makes sense to set your styles directly in your JS files.',
                 'speaker': 'Rude Ayelo',
                 'avatar': require('../../src/images/rude-ayelo.jpg'),
             },
             {
                 'type': 'lightning',
-                'title': 'SVG Icon Systems',
+                'title': 'SVG Icon Systems',
                 'description': 'Building an Icon System in CSS might be challenging depending on the requirements you have. Let’s do a quick overview of the different techniques and how to workaround their drawbacks and limitations. See how these strategies give us more flexibility in the development process.',
                 'speaker': 'Javi Sánchez-Marín',
                 'avatar': require('../../src/images/javi-sanchez.jpg'),
