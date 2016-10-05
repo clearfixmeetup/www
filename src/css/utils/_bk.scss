@@ -1,3 +1,13 @@
+// -----------------------------------------------------------------------------
+// Breakpoint utilities
+// -----------------------------------------------------------------------------
+
+/// Gets breakpoint information from a given breakpoint map where each key is
+/// a breakpoint name.
+///
+/// @param {String} $bk - Breakpoint name.
+/// @param {Map} $bk - Breakpoint map.
+/// @return {Map} Breakpoint information.
 @function bk($bk, $bks: $breakpoints) {
     @if not map-has-key($bks, $bk) {
         @error '#{$bk} is not a valid breakpoint. Available breakpoints are #{map-keys($bks)}';
@@ -6,20 +16,55 @@
     @return map-get($bks, $bk);
 }
 
+/// Gets the min-width of a given breakpoint
+///
+/// @param {String} $bk - Breakpoint name.
+/// @param {Map} $bk - Breakpoint map.
+/// @return {Number} min-width.
 @function bk-mq($bk, $bks: $breakpoints) {
     $bk-settings: bk($bk, $bks: $breakpoints);
 
     @return map-get($bk-settings, 'min-width');
 }
 
+/// Gets the grid columns of a given breakpoint
+///
+/// @param {String} $bk - Breakpoint name.
+/// @param {Map} $bks - Grid breakpoint map.
+/// @return {Number} number of columns.
 @function bk-cols($bk, $bks: $grid-breakpoints) {
     $bk-settings: bk($bk, $bks);
 
     @return map-get($bk-settings, 'cols');
 }
 
+/// Gets the grid gutter of a given breakpoint
+///
+/// @param {String} $bk - Breakpoint name.
+/// @param {Map} $bks - Grid breakpoint map.
+/// @return {Number} gutter size.
 @function bk-gutter($bk, $bks: $grid-breakpoints) {
     $bk-settings: bk($bk, $bks);
 
     @return map-get($bk-settings, 'gutter');
+}
+
+@function find-breakpoint-from-width($min-width) {
+    @each $breakpoint, $values in $breakpoints {
+        $bk-min-width: map-get($values, 'min-width');
+
+        @if ($bk-min-width == nth($min-width, 1)) {
+            @return $breakpoint;
+        }
+    }
+
+    @return null;
+}
+
+@function get-breakpoint-name-from-context() {
+    @if (breakpoint-has-context()) {
+        @return find-breakpoint-from-width(breakpoint-get-context('min-width'));
+    }
+
+    @return nth(map-keys($font-sizes), 1);
 }

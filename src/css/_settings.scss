@@ -1,9 +1,12 @@
-/* stylelint-disable max-line-length */
+// ----------------------------------------------------------------------------
+// Settings
+// ----------------------------------------------------------------------------
 
 // ----------------------------------------------------------------------------
 // Typography
 // ----------------------------------------------------------------------------
 
+/* stylelint-disable max-line-length */
 $base-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 $base-font-size: 19px;
 $base-line-height: 30px;
@@ -63,15 +66,15 @@ $font-sizes: (
 // Colors
 // ----------------------------------------------------------------------------
 
-$white: #FFF;
-$gray: #737373;
-$dark-gray: #333;
+$white              : #FFF;
+$gray               : #737373;
+$dark-gray          : #333;
 
-$brand-color: #6B2AFE;
-$base-text-color: $gray;
+$brand-color        : #6B2AFE;
+$base-text-color    : $gray;
 $inverted-text-color: $white;
-$strong-text-color: $dark-gray;
-$link-color: $brand-color;
+$strong-text-color  : $dark-gray;
+$link-color         : $brand-color;
 
 // ----------------------------------------------------------------------------
 // Layout
@@ -84,11 +87,7 @@ $content-width: 1400px;
 // ----------------------------------------------------------------------------
 
 $base-grid-unit: 6px;
-$double-grid-unit: $base-grid-unit * 2;
-
-// Aliases
 $u: $base-grid-unit;
-$u2: $double-grid-unit;
 
 // ----------------------------------------------------------------------------
 // Breakpoints
@@ -96,17 +95,17 @@ $u2: $double-grid-unit;
 
 $breakpoints: (
     'medium': ('min-width': 900px),
-    'large':  ('min-width': 1200px)
+    'large' : ('min-width': 1200px)
 );
 
 // ----------------------------------------------------------------------------
-// Debug
+// Grid
 // ----------------------------------------------------------------------------
 
 $grid-breakpoints: (
-    'small':  ('cols': 6, 'gutter': 1/3),
+    'small' : ('cols': 6,  'gutter': 1/3),
     'medium': ('cols': 12, 'gutter': 1/3),
-    'large':  ('cols': 16, 'gutter': 1/3)
+    'large' : ('cols': 16, 'gutter': 1/3)
 );
 
 $grid-debug: false;

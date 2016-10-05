@@ -1,0 +1,87 @@
+// -----------------------------------------------------------------------------
+// Font size utilitites
+// -----------------------------------------------------------------------------
+
+/// Retrieves the headings confg from a font size configuration map.
+///
+/// @param {Map} $settings - Font size configuration map.
+/// @return {List|Null} List of headings or null if not available.
+@function _headings($settings) {
+    @if (map-has-key($settings, 'headings')) {
+        @return map-get($settings, 'headings');
+    }
+
+    @return null;
+}
+
+/// Retrieves the line-height confg from a font size configuration map.
+///
+/// @param {Map} $settings - Font size configuration map.
+/// @return {Number|Null} Line height value or null if not available.
+@function _lh($settings) {
+    @if (map-has-key($settings, 'line-height')) {
+        @return map-get($settings, 'line-height');
+    }
+
+    @return null;
+}
+
+/// Gets the font-size value of specific size in the given breakpoint. If
+/// breakpoint is not passed, it'll try to infer the breakpoint from the context.
+///
+/// @param {String} $size - Font size name.
+@function font-size($size, $breakpoint: null, $settings: $font-sizes) {
+    @if (not $breakpoint) {
+        $breakpoint: get-breakpoint-name-from-context();
+    }
+
+    $bk-settings: map-get($settings, $breakpoint);
+    $bk-sizes: map-get($bk-settings, 'sizes');
+    $bk-size-values: map-get($bk-sizes, $size);
+
+    @return map-get($bk-size-values, 'size');
+}
+
+@function line-height($size, $breakpoint: null, $settings: $font-sizes) {
+    @if not ($breakpoint) {
+        $breakpoint: get-breakpoint-name-from-context();
+    }
+
+    $bk-settings: map-get($settings, $breakpoint);
+    $bk-sizes: map-get($bk-settings, 'sizes');
+    $bk-size-values: map-get($bk-sizes, $size);
+
+    @if (map-has-key($bk-size-values, 'line-height')) {
+        @return map-get($bk-size-values, 'line-height');
+    } @else if (variable-exists($base-line-height)) {
+        @return $base-line-height;
+    }
+
+    @return normal;
+}
+
+@mixin generate-font-sizes($font-sizes: $font-sizes) {
+    @each $breakpoint, $bk in $font-sizes {
+        $sizes: map-get($bk, 'sizes');
+
+        @each $size, $settings in $sizes {
+            %#{$size},
+            .#{$size},
+            #{_headings($settings)} {
+                @if (map-has-key($breakpoints, $breakpoint)) {
+                    @include breakpoint(bk-mq($breakpoint)) {
+                        font-size: map-get($settings, 'size');
+                        line-height: _lh($settings);
+
+                        @at-root #{_headings($settings)} {
+                            margin-bottom: _lh($settings);
+                        }
+                    }
+                } @else {
+                    font-size: map-get($settings, 'size');
+                    line-height: _lh($settings);
+                }
+            }
+        }
+    }
+}

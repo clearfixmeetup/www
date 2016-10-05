@@ -1,18 +1,24 @@
+//------------------------------------------------------------------------------
+// Icon
+//------------------------------------------------------------------------------
+
 .Icon {
+    $icon-size: 40px;
+
     @extend %text-image-replacement;
 
-    font-size: $base-font-size;
     display: inline-block;
-    width: em(40px);
-    height: em(40px);
-    background-size: em(40px);
+    width: em($icon-size);
+    height: em($icon-size);
+    font-size: $base-font-size;
+    background-size: em($icon-size);
     background-repeat: no-repeat;
-}
 
-.Icon--github {
-    background-image: url('../images/github-logo.svg');
-}
+    &--github {
+        background-image: url('../images/github-logo.svg');
+    }
 
-.Icon--twitter {
-    background-image: url('../images/twitter-logo.svg');
+    &--twitter {
+        background-image: url('../images/twitter-logo.svg');
+    }
 }

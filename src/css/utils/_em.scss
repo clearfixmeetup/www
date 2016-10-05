@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------
+// Em utility
+// -----------------------------------------------------------------------------
+
+/// Given a pixel value and a context font-size, returns the value in ems.
+///
+/// @param {Number} $pixels - Font size in pixels.
+/// @param {Number} $context - Context font-size in pixels.
+/// @return {Number} result in ems.
 @function em($pixels, $context: $base-font-size) {
     @if (unitless($pixels)) {
         $pixels: $pixels * 1px;

@@ -1,3 +1,7 @@
+// -----------------------------------------------------------------------------
+// Grid
+// -----------------------------------------------------------------------------
+
 // Configure grid settings
 @include sgs-change('debug', true);
 @include sgs-change('include border box', true);
@@ -15,6 +19,7 @@
     @include add-gutter(bk-gutter($breakpoint) at bk-mq($breakpoint));
 }
 
+// Debugging grid overlay
 @if ($grid-debug) {
     body {
         position: relative;
