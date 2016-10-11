@@ -53,7 +53,7 @@ module.exports = {
         ],
         'talk_type_featured': 'Charla destacada',
         'talk_type_lightning': 'Lightning Talk',
-        the_challenge_title: 'The Challenge - Patrocinado por CodePen',
+        the_challenge_title: 'The CodePen Challenge',
         the_challenge_description: 'Tráe tu portátil y ayúdanos a resolver un breve pero desafiante reto en CSS! Compartiremos y discutiremos las mejores soluciones. Ah! Y habrá algún que otro premio!',
         rsvp_title: 'Próximo evento',
         rsvp_cta: 'RSVP Ahora',
