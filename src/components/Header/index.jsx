@@ -1,8 +1,7 @@
 import React, {PropTypes} from 'react';
-import SwitchLangLink from '../SwitchLangLink';
 
 export default function Header(props) {
-    let {lang, t} = props;
+    let {t} = props;
 
     return (
         <header className="Header">
@@ -15,14 +14,10 @@ export default function Header(props) {
                     })}
                 </span>
             </div>
-            <nav className="Header-langNav">
-                <SwitchLangLink to={lang === 'es' ? 'en' : 'es'} metadata={props}/>
-            </nav>
         </header>
     );
 }
 
 Header.propTypes = {
-    lang: PropTypes.string,
     t: PropTypes.object
 };

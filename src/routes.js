@@ -2,26 +2,21 @@ import {site, pages, languages} from '../data';
 
 const ROUTES = Object.keys(pages);
 const DEFAULT_LANGUAGE_KEY = site.default_lang;
-const LANG_KEYS = Object.keys(languages);
 // http://regexr.com/3dqqm
 const pageKeyRegex = /^\/([\w\d-_\/]*?)(\/|\..*)?$/i;
 const i18nRoutes = ROUTES.reduce((routes, routePath) => {
-    routes = routes.concat(
-        LANG_KEYS.map(langKey => {
-            let pageKey = routePath.match(pageKeyRegex)[1];
-            let t = getTranslations(langKey, pageKey);
-            let slug = `${langKey}/${t.slug || pageKey}`;
+    const pageKey = routePath.match(pageKeyRegex)[1];
+    const t = getTranslations(pageKey);
 
-            return {
-                path: routePath,
-                renderPath: toRenderPath(slug),
-                pageKey: pageKey,
-                slug: slug,
-                lang: langKey,
-                t: t
-            };
-        })
-    );
+    routes.push({
+        path: routePath,
+        renderPath: toRenderPath(pageKey),
+        pageKey: pageKey,
+        slug: pageKey,
+        lang: DEFAULT_LANGUAGE_KEY,
+        t: t
+    });
+
     return routes;
 }, []);
 
@@ -41,7 +36,7 @@ function toRenderPath(path) {
     return path.replace(/^(\\|\/)+/, '');
 }
 
-function getTranslations(langKey, pageKey) {
+function getTranslations(pageKey, langKey = DEFAULT_LANGUAGE_KEY) {
     let defaultT = (languages[DEFAULT_LANGUAGE_KEY] && languages[DEFAULT_LANGUAGE_KEY][pageKey]) || {};
     let currentT = (languages[langKey] && languages[langKey][pageKey]) || {};
 

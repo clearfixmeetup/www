@@ -1,6 +1,7 @@
 {
     "extends": "stylelint-config-suitcss",
     "rules": {
+        "max-line-length": 1000,
         "indentation": 4,
         "rule-non-nested-empty-line-before": [ "always", {
             "ignore": ["after-comment"]

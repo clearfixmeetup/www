@@ -2,7 +2,6 @@
 
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
-import IndexRedirect from '../data/redirect.jsx';
 import routes from './routes';
 import App from './templates/App.jsx';
 import './css';
@@ -15,8 +14,6 @@ function buildHTML(props, Component = App) {
 }
 
 export default function (render, done) {
-    render('index.html', buildHTML({}, IndexRedirect));
-
     routes.forEach(route => {
         render(route.renderPath, buildHTML(route));
     });
