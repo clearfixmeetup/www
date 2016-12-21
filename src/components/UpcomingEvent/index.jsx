@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-// import Challenge from '../Challenge';
+import Challenge from '../Challenge';
 import Rsvp from '../Rsvp';
 import Talk from '../Talk';
 
@@ -16,8 +16,14 @@ export default function UpcomingEvent(props) {
                     <Talk main info={t._.talks[0]} {...props}/>
                 </section>
 
-                <section className="UpcomingEvent-tbd">
-                    <h2>More talks to be announced soon!</h2>
+                <section className="UpcomingEvent-section">
+                    <div className="UpcomingEvent-tbd">
+                        <h2>More talks to be announced soon!</h2>
+                    </div>
+                </section>
+
+                <section className="UpcomingEvent-section">
+                    <Challenge {...props}/>
                 </section>
 
                 <section className="UpcomingEvent-Rsvp">

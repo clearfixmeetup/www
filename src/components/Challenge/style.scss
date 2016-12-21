@@ -11,14 +11,14 @@
         @include grid-span(8, 2);
 
         clear: both;
-        margin-top: -300px;
+        // margin-top: -300px;
     }
 
     @include breakpoint(bk-mq('large')) {
         @include grid-span(8, 4);
 
         clear: both;
-        margin-top: -340px;
+        // margin-top: -340px;
     }
 
     &-codepen {
