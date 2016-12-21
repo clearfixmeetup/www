@@ -58,7 +58,7 @@ module.exports = {
         rsvp_title: 'Save the date',
         rsvp_cta: 'RSVP Now',
         rsvp_extra: 'it\s free!',
-        rsvp_url: 'https://www.meetup.com/es-ES/Clearfix/events/234566299/',
+        rsvp_url: 'https://www.meetup.com/Clearfix/events/235646760/',
         footer_copyright: ['Clearfix is organized by ', <a href="https://twitter.com/danielguillan" target="_blank">@danielguillan</a>, ' and ', <a href="https://twitter.com/vieron" target="_blank">@vieron</a>, '. Obviously, this site uses the ', <a href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank">clearfix CSS hack</a>, '.'],
         link_become_a_sponsor: 'Become a sponsor',
         link_submit_talk: 'Want to give a talk?',
