@@ -16,13 +16,8 @@ export default function UpcomingEvent(props) {
                     <Talk main info={t._.talks[0]} {...props}/>
                 </section>
 
-                <section className="UpcomingEvent-section">
-                    <Talk secondary info={t._.talks[1]} {...props}/>
-                    <Talk secondary info={t._.talks[2]} {...props}/>
-                </section>
-
-                <section className="UpcomingEvent-section">
-                    <Challenge {...props}/>
+                <section className="UpcomingEvent-tbd">
+                    <h2>More talks to be announced soon!</h2>
                 </section>
 
                 <section className="UpcomingEvent-Rsvp">

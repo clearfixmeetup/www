@@ -148,7 +148,7 @@
         }
 
         @include breakpoint(bk-mq('medium')) {
-            min-height: $offset;
+            // min-height: $offset;
         }
     }
 }

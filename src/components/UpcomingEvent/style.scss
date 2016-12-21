@@ -39,6 +39,11 @@
         margin-bottom: 60px;
     }
 
+    &-tbd {
+        text-align: center;
+        margin-bottom: $u * 20;
+    }
+
     &-section-title {
         @include clearfix;
         @extend %beta;

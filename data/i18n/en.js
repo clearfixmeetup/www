@@ -15,9 +15,9 @@ module.exports = {
         newsletter_signup_button: 'Subscribe',
         newsletter_signup_no_spam: 'Expect no more than one mail per month.',
         upcoming_event_title: 'Upcoming Event',
-        upcoming_event_date: ['October', <br />, '18', <sub>th</sub>, ' 2016'],
-        upcoming_event_date_full: ['Tuesday October 18th 2016'],
-        upcoming_event_date_time_format: '2016-10-18T19:00',
+        upcoming_event_date: ['January', <br />, '17', <sub>th</sub>, ' 2017'],
+        upcoming_event_date_full: ['Tuesday January 17th 2017'],
+        upcoming_event_date_time_format: '2017-01-17T19:00',
         upcoming_event_venue_join_us: ['Join us at the ', <a href="https://www.google.es/maps/place/New+Relic/@41.3892413,2.1603585,17z/data=!3m1!4b1!4m5!3m4!1s0x12a4a28d0f29c04d:0x955a803b2aaeeed6!8m2!3d41.3892373!4d2.1625472" target="_blank">New Relic Barcelona office</a>, '.'],
         upcoming_event_venue_address: 'Carrer de Balmes, 49, 6th floor, 08007 Barcelona',
         contributing_speakers_title: 'Propose a Speaker',
@@ -31,10 +31,10 @@ module.exports = {
         'talks': [
             {
                 'type': 'main',
-                'title': ['CSS Globals:', <br/>, ' Problems and Solutions'],
-                'description': 'CSS improved a lot in the last years but for many, it\'s still one of the hardest parts to handle while developing big web applications. Pre-processed languages like Sass and Less added many new features, but we still have to rely on methodologies such as BEM and OOCSS to avoid name collisions. Component-based libraries like React and Polymer are giving us a new tool to manage large front-end applications. In this talk, Giorgio will explain how to use these approaches so you can benefit from them in your next project.',
-                'speaker': 'Giorgio Polvara',
-                'avatar': require('../../src/images/giorgio-polvara.jpg'),
+                'title': ['Shared Language:', <br/>, ' Avoiding CSS conflicts across projects'],
+                'description': 'Maintaining CSS in a company with several projects, teams, backgrounds and purposes is hard. In this talk Alex will share strategies to encourage a shared language within UX/UI teams and front-end and back-end developers using visual patterns and a solid CSS Architecture.',
+                'speaker': 'Alejandro Carbajo',
+                'avatar': require('../../src/images/alejandro-carbajo.jpg'),
             },
             {
                 'type': 'lightning',
