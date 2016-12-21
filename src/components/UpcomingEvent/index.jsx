@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import Challenge from '../Challenge';
+// import Challenge from '../Challenge';
 import Rsvp from '../Rsvp';
 import Talk from '../Talk';
 
