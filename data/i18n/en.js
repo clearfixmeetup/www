@@ -38,18 +38,11 @@ module.exports = {
             },
             {
                 'type': 'lightning',
-                'title': ['A journey into', <br/>, 'CSS-in-JS'],
-                'description': 'There seems to be many misconceptions about what means writing “inline styles” in javascript applications. I spent some time investigating the different solutions for writing CSS in those environments and I want to share my conclusions and why I think it makes sense to set your styles directly in your JS files.',
-                'speaker': 'Rude Ayelo',
-                'avatar': require('../../src/images/rude-ayelo.jpg'),
-            },
-            {
-                'type': 'lightning',
-                'title': 'SVG Icon Systems',
-                'description': 'Building an Icon System in CSS might be challenging depending on the requirements you have. Let’s do a quick overview of the different techniques and how to workaround their drawbacks and limitations. See how these strategies give us more flexibility in the development process.',
-                'speaker': 'Javi Sánchez-Marín',
-                'avatar': require('../../src/images/javi-sanchez.jpg'),
-            },
+                'title': ['Dynamic vector image generation with Sass'],
+                'description': 'Miguel and Dani from New Relic will walk us through the process of developing responsive background images in Sass. In this case study they will share an in-depth overview of their work on a real-life project. From the reasoning behind the approach taken and the crafting of the dynamic, adaptative and animated image to the creation of a Sass toolkit for generating inline SVG backgrounds.',
+                'speaker': 'Daniel Guillan & Miguel Jiménez Esún',
+                'avatar': require('../../src/images/daniel-guillan-and-miguel-jimenez-esun.jpg'),
+            }
         ],
         'talk_type_featured': 'Featured Talk',
         'talk_type_lightning': 'Lightning Talk',

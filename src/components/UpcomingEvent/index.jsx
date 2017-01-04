@@ -17,9 +17,7 @@ export default function UpcomingEvent(props) {
                 </section>
 
                 <section className="UpcomingEvent-section">
-                    <div className="UpcomingEvent-tbd">
-                        <h2>More talks to be announced soon!</h2>
-                    </div>
+                    <Talk main info={t._.talks[1]} {...props}/>
                 </section>
 
                 <section className="UpcomingEvent-section">

@@ -124,6 +124,7 @@
     &-title {
         margin-bottom: $u * 4;
         clear: both;
+        hyphens: none;
 
         .Talk--main & {
             @extend %giga;
