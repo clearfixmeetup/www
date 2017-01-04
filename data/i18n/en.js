@@ -3,7 +3,7 @@ import site from '../site.yml';
 
 module.exports = {
     '_global_': {
-        meta_description: 'The first advance CSS meetup in Barcelona',
+        meta_description: 'The first advanced CSS meetup in Barcelona',
         topics_lets_talk: `Let's talk about`,
         topics_words: ['components', 'performance', 'architecture', 'standards', 'animation', 'SVG', 'modularization', 'versioning', 'distribution', 'testing', 'preprocessors', 'layouts', 'effects', 'methodologies', 'media queries', 'fonts'],
         logo_tagline: `is the first ever meetup event in Barcelona fully focused on advanced CSS techniques for modern UI development.`,
