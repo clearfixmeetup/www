@@ -39,7 +39,7 @@ module.exports = {
             {
                 'type': 'lightning',
                 'title': ['Dynamic vector image generation with Sass'],
-                'description': 'Miguel and Dani from New Relic will walk us through the process of developing responsive background images in Sass. In this case study they will share an in-depth overview of their work on a real-life project. From the reasoning behind the approach taken and the crafting of the dynamic, adaptative and animated image to the creation of a Sass toolkit for generating inline SVG backgrounds.',
+                'description': 'Miguel and Dani from New Relic will walk us through the process of building dynamic background images in Sass. In this case study they will share an in-depth overview of their work on a real-life project. From the reasoning behind the approach taken and the crafting of the adaptative and animated vector image to the creation of a Sass toolkit for generating inline SVG backgrounds.',
                 'speaker': 'Daniel Guillan & Miguel Jiménez Esún',
                 'avatar': require('../../src/images/daniel-guillan-and-miguel-jimenez-esun.jpg'),
             }
